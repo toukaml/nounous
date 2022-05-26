@@ -57,3 +57,6 @@ INSERT INTO telephone (IdTelephone, IdPersonne, Libelle, Numero ) VALUES
 
 ALTER TABLE telephone ALTER COLUMN IdTelephone RESTART WITH 100;
  
+-- new data
+
+
