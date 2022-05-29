@@ -59,4 +59,12 @@ ALTER TABLE telephone ALTER COLUMN IdTelephone RESTART WITH 100;
  
 -- new data
 
+INSERT INTO nounous (nom, prenom, telephone, adresse,email,password,tarif_horaire) VALUES 
+  ('mouaffo','zidane','0752337571','29 strasbourg','zidtakoumbo@gmail.com','1234',25.5 ),
+  ('Nkeuzing','Arianne','0752337571','29 strasbourg','nkeuzina@3il.fr','1234',45.5 ),
+  ('nanda','vianney','0752337571','29 strasbourg','nandav@3il.fr','1234',30.5 ),
+  ('toukam','linchou','0752337571','6 elysée','toukaml@3il.frm','1234',10.0 );
+
+
+
 
