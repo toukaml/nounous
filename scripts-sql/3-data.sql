@@ -9,6 +9,7 @@ DELETE FROM role;
 DELETE FROM compte;
 
 
+
 -- Insère les données
 
 INSERT INTO compte (IdCompte, Pseudo, MotDePasse, Email ) VALUES 
@@ -66,5 +67,30 @@ INSERT INTO nounous (nom, prenom, telephone, adresse,email,password,tarif_horair
   ('toukam','linchou','0752337571','6 elysée','toukaml@3il.frm','1234',10.0 );
 
 
+ INSERT INTO enfant (nom, prenom,date_inscription,date_naissance,sexe,allergie,infos) VALUES 
+  ('kameni','maella','14-07-2000','28-01-1999','F','crevette','bb delicat' ),
+  ('tchoungo','brice','14-07-2000','28-01-1999','M','crevette','bb delicat' ),
+  ('mukam','vichal','14-07-2000','28-01-1999','M','porc','trop riche' ),
+  ('mapsou','vanessa laure','14-07-2000','28-01-1999','F','crevette','bb delicat' );
+  
+INSERT INTO parent ( nom, prenom, date_naissance, password, numero_cni, caracteristiques, email, telephone, adresse) VALUES
+('Tsague', 'alex', '1996-03-22', 'alex', '111-111-111-111', 'a la voiture', 'alex@3il.fr', '0752337571', '29 rue du pain chargé 87100 Limoges '),
+('Morena Magne', 'sosso', '1999-10-10', 'sosso', '111-111-111-112', 'riche ', 'sosso@3il.fr', '0752337571', '35 rue de Dubai 87100 limoges');
 
+
+INSERT INTO inscription (id_enfant, id_parent) VALUES
+(1, 2),
+(2, 1),
+(3, 1),
+(4, 2);
+
+INSERT INTO contrat ( date_debut, date_fin, specifications, id_enfant, id_nounous) VALUES 
+( '2022-05-01', NULL, 'ras', '1', '1'),
+( '2022-05-01', NULL, 'ras', '4', '1'),
+('2022-05-03', NULL, 'ras', '3', '2');
+
+
+INSERT INTO garder (id_enfant, id_nounous, date_garde, heure_arrivee, repas, heure_depart) VALUES 
+('1', '1', '2022-06-10', '10:00:00', 'yes', '17:00:00'), 
+('4', '1', '2022-06-10', '07:00:00', 'no', '17:30:00');
 
