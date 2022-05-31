@@ -1,42 +1,48 @@
-package nounous.jsf.data;
+package nounous.ejb.data;
 
-import java.io.Serializable;
+
 import java.sql.Date;
 import java.util.Objects;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 
-@SuppressWarnings("serial")
-public class Enfant implements Serializable {
+@Entity
+@Table( name = "enfant" )
+public class Enfant  {
 
 
 	// Champs
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer			id;
 	
-	@NotBlank( message = "Le nom doit être renseigné")
-	@Size(max=25, message = "Valeur trop longue pour le nom : 50 car. maxi" )
+	@Column(name = "nom")
 	private String			nom;
-
-	@NotBlank( message = "Le prénom doit être renseigné")
-	@Size(max=25, message = "Valeur trop longue pour le prénom : 25 car. maxi" )
+	
+	@Column(name = "prenom")
 	private String			prenom;
 
 	
-	@NotNull( message = "La date  est obligatoire")
+	@Column(name = "date_inscription")
 	private Date		date_inscription;
 	
-	@NotNull( message = "La date  est obligatoire")
+	@Column(name = "date_naissance")
 	private Date		date_naissance;
 	
-	@NotNull( message = "Le sexe est obligatoire")
+	@Column(name = "sexe")
 	private String		sexe;
 	
+	@Column(name = "allergie")
 	private String		allergies;
 	
+	@Column(name = "infos")
 	private String		infos;
 	
 	
@@ -71,38 +77,6 @@ public class Enfant implements Serializable {
 		return Objects.hash(id);
 	}
 
-	public Date getDate_inscription() {
-		return date_inscription;
-	}
-
-	public void setDate_inscription(Date date_inscription) {
-		this.date_inscription = date_inscription;
-	}
-
-	public String getSexe() {
-		return sexe;
-	}
-
-	public void setSexe(String sexe) {
-		this.sexe = sexe;
-	}
-
-	public String getAllergies() {
-		return allergies;
-	}
-
-	public void setAllergies(String allergies) {
-		this.allergies = allergies;
-	}
-
-	public String getInfos() {
-		return infos;
-	}
-
-	public void setInfos(String infos) {
-		this.infos = infos;
-	}
-
 	public Integer getId() {
 		return id;
 	}
@@ -134,7 +108,41 @@ public class Enfant implements Serializable {
 	public void setDate_naissance(Date date_naissance) {
 		this.date_naissance = date_naissance;
 	}
+	
+	
 
+
+	public Date getDate_inscription() {
+		return date_inscription;
+	}
+
+	public void setDate_inscription(Date date_inscription) {
+		this.date_inscription = date_inscription;
+	}
+
+	public String getSexe() {
+		return sexe;
+	}
+
+	public void setSexe(String sexe) {
+		this.sexe = sexe;
+	}
+
+	public String getAllergies() {
+		return allergies;
+	}
+
+	public void setAllergies(String allergies) {
+		this.allergies = allergies;
+	}
+
+	public String getInfos() {
+		return infos;
+	}
+
+	public void setInfos(String infos) {
+		this.infos = infos;
+	}
 
 	@Override
 	public boolean equals(Object obj) {

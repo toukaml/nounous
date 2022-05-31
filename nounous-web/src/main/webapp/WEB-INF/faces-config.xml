@@ -6,7 +6,7 @@
   <navigation-case>
    <from-outcome>connexion</from-outcome>
    <to-view-id>/connexion.xhtml</to-view-id>
-   <redirect />
+   <redirect/>
   </navigation-case>
   <navigation-case>
    <from-outcome>catégories</from-outcome>
@@ -23,6 +23,14 @@
   <navigation-case>
    <from-outcome>info</from-outcome>
    <to-view-id>/pages/info.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>liste_garde_jour</from-outcome>
+   <to-view-id>/pages/user/garde/liste.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>nouvelle_garde</from-outcome>
+   <to-view-id>/pages/user/garde/formulaire.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
  <application/>

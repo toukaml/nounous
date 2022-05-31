@@ -25,7 +25,7 @@ public class Compte  {
 
 	@Id
 	@GeneratedValue( strategy = IDENTITY)
-	@Column( name = "idcompte")
+	@Column(name = "idcompte")
 	private int			id;
 	
 	@Column( name = "pseudo")

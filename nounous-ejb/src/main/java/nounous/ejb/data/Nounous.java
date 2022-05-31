@@ -1,68 +1,66 @@
-package nounous.jsf.data;
+package nounous.ejb.data;
 
-import java.io.Serializable;
+
 
 import java.util.Objects;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 
-@SuppressWarnings("serial")
-public class Parent implements Serializable {
+
+
+public class Nounous  {
 
 
 	// Champs
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer			id;
 	
-	@NotBlank( message = "Le nom doit être renseigné")
-	@Size(max=25, message = "Valeur trop longue pour le nom : 50 car. maxi" )
+	@Column(name = "nom")
 	private String			nom;
 
-	@NotBlank( message = "Le prénom doit être renseigné")
-	@Size(max=25, message = "Valeur trop longue pour le prénom : 25 car. maxi" )
+	@Column(name = "prenom")
 	private String			prenom;
 
+
 	
-	@NotNull( message = "La catégorie est obligatoire")
+	@Column(name = "password")
 	private String		password;
 	
-	@NotNull( message = "L'email  est obligatoire")
+	@Column(name = "email")
 	private String		email;
 	
 	
-	@NotNull( message = "Le telephone  est obligatoire")
+	@Column(name = "telephone")
 	private String		telephone;
 	
 	
-	@NotNull( message = "L'adresse  est obligatoire")
+	@Column(name = "adresse")
 	private String		adresse;
 	
-	@NotNull( message = "La cni  est obligatoire")
-	private String		numero_cni;
-	
-	
-	
+	@Column(name = "tarif_horaire")
+	private float		tarif;
 	
 
 	
 	// Constructeurs
 	
-	public Parent() {
+	public Nounous() {
 	}
 
-	public Parent(Integer id, String nom, String prenom,  String password, String email, String telephone, String adresse, String cni ) {
+	public Nounous(Integer id, String nom, String prenom, String email, String telephone, String adresse ) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
-		this.password=this.prenom;
+		this.password="password";
 		this.email= email;
 		this.telephone=telephone;
 		this.adresse=adresse;
-		this.numero_cni=cni;
 		
 	}
 	
@@ -136,17 +134,16 @@ public class Parent implements Serializable {
 		this.adresse = adresse;
 	}
 
+	
 
 
 
-
-
-	public String getNumero_cni() {
-		return numero_cni;
+	public float getTarif() {
+		return tarif;
 	}
 
-	public void setNumero_cni(String numero_cni) {
-		this.numero_cni = numero_cni;
+	public void setTarif(float tarif) {
+		this.tarif = tarif;
 	}
 
 	@Override
@@ -157,7 +154,7 @@ public class Parent implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		var other = (Parent) obj;
+		var other = (Nounous) obj;
 		return Objects.equals(id, other.id);
 	}
 	

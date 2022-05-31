@@ -90,7 +90,7 @@ INSERT INTO contrat ( date_debut, date_fin, specifications, id_enfant, id_nounou
 ('2022-05-03', NULL, 'ras', '3', '2');
 
 
-INSERT INTO garder (id_enfant, id_nounous, date_garde, heure_arrivee, repas, heure_depart) VALUES 
+INSERT INTO garde (id_enfant, id_nounous, date_garde, heure_arrivee, repas, heure_depart) VALUES 
 ('1', '1', '2022-06-10', '10:00:00', 'yes', '17:00:00'), 
 ('4', '1', '2022-06-10', '07:00:00', 'no', '17:30:00');
 

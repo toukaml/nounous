@@ -1,50 +1,61 @@
-package nounous.jsf.data;
+package nounous.ejb.data;
 
-import java.io.Serializable;
+
 
 import java.util.Objects;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 
-@SuppressWarnings("serial")
-public class Parent implements Serializable {
+
+@Entity
+@Table( name = "parent" )
+public class Parent  {
 
 
 	// Champs
 	
-	private Integer			id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Integer	id;
 	
-	@NotBlank( message = "Le nom doit être renseigné")
-	@Size(max=25, message = "Valeur trop longue pour le nom : 50 car. maxi" )
-	private String			nom;
+	@Column(name = "nom")
+	private String	nom;
 
-	@NotBlank( message = "Le prénom doit être renseigné")
-	@Size(max=25, message = "Valeur trop longue pour le prénom : 25 car. maxi" )
-	private String			prenom;
+	@Column(name = "prenom")
+	private String	prenom;
 
 	
-	@NotNull( message = "La catégorie est obligatoire")
-	private String		password;
+	@Column(name = "password")
+	private String	password;
 	
-	@NotNull( message = "L'email  est obligatoire")
-	private String		email;
-	
-	
-	@NotNull( message = "Le telephone  est obligatoire")
-	private String		telephone;
+	@Column(name = "email")
+	private String	email;
 	
 	
-	@NotNull( message = "L'adresse  est obligatoire")
-	private String		adresse;
-	
-	@NotNull( message = "La cni  est obligatoire")
-	private String		numero_cni;
+	@Column(name = "telephone")
+	private String	telephone;
 	
 	
+	@Column(name = "adresse")
+	private String	adresse;
 	
+	@Column(name = "caracteristiques")
+	private String	caracteristiques;
+	
+	@Column(name = "numero_cni")
+	private String	numero_cni;
+	
+	@Column(name = "date_naissance")
+	private String	date_naissance;
+	
+
 	
 
 	
@@ -140,6 +151,13 @@ public class Parent implements Serializable {
 
 
 
+	public String getCaracteristiques() {
+		return caracteristiques;
+	}
+
+	public void setCaracteristiques(String caracteristiques) {
+		this.caracteristiques = caracteristiques;
+	}
 
 	public String getNumero_cni() {
 		return numero_cni;
@@ -147,6 +165,14 @@ public class Parent implements Serializable {
 
 	public void setNumero_cni(String numero_cni) {
 		this.numero_cni = numero_cni;
+	}
+
+	public String getDate_naissance() {
+		return date_naissance;
+	}
+
+	public void setDate_naissance(String date_naissance) {
+		this.date_naissance = date_naissance;
 	}
 
 	@Override

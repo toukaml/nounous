@@ -25,15 +25,10 @@ public class Nounous implements Serializable {
 	@Size(max=25, message = "Valeur trop longue pour le prénom : 25 car. maxi" )
 	private String			prenom;
 
-	
-	@NotNull( message = "La date  est obligatoire")
-	private Date		date_naissance;
+
 	
 	@NotNull( message = "La catégorie est obligatoire")
 	private String		password;
-	
-	@NotNull( message = "La cni  est obligatoire")
-	private String		numero_cni;
 	
 	@NotNull( message = "L'email  est obligatoire")
 	private String		email;
@@ -46,8 +41,11 @@ public class Nounous implements Serializable {
 	@NotNull( message = "L'adresse  est obligatoire")
 	private String		adresse;
 	
+	@NotNull( message = "La tarif  est obligatoire")
+	private float		tarif;
 	
-	private String		caracteristiques;
+	
+
 
 	
 	// Constructeurs
@@ -55,17 +53,16 @@ public class Nounous implements Serializable {
 	public Nounous() {
 	}
 
-	public Nounous(Integer id, String nom, String prenom, Date date, String password, String email, String telephone, String adresse, String cni ) {
+	public Nounous(Integer id, String nom, String prenom, String email, String telephone, String adresse,float tarif ) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
-		this.date_naissance=date;
-		this.password="password";
+		this.password=this.prenom;
 		this.email= email;
 		this.telephone=telephone;
-		this.numero_cni=cni;
 		this.adresse=adresse;
+		this.tarif=tarif;
 		
 	}
 	
@@ -105,13 +102,6 @@ public class Nounous implements Serializable {
 		this.prenom = prenom;
 	}
 
-	public Date getDate_naissance() {
-		return date_naissance;
-	}
-
-	public void setDate_naissance(Date date_naissance) {
-		this.date_naissance = date_naissance;
-	}
 
 	public String getPassword() {
 		return password;
@@ -121,13 +111,6 @@ public class Nounous implements Serializable {
 		this.password = password;
 	}
 
-	public String getNumero_cni() {
-		return numero_cni;
-	}
-
-	public void setNumero_cni(String numero_cni) {
-		this.numero_cni = numero_cni;
-	}
 
 	public String getEmail() {
 		return email;
@@ -153,15 +136,17 @@ public class Nounous implements Serializable {
 		this.adresse = adresse;
 	}
 
-	public String getCaracteristiques() {
-		return caracteristiques;
+	
+
+
+
+	public float getTarif() {
+		return tarif;
 	}
 
-	public void setCaracteristiques(String caracteristiques) {
-		this.caracteristiques = caracteristiques;
+	public void setTarif(float tarif) {
+		this.tarif = tarif;
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
