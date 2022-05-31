@@ -1,35 +1,48 @@
-package nounous.jsf.data;
+package nounous.ejb.data;
 
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.Objects;
 
-import javax.validation.constraints.NotBlank;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 
 
-@SuppressWarnings("serial")
-public class Garde implements Serializable {
+
+public class Garde  {
 
 
 	// Champs
 	
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer			id;
 	
-	@NotBlank( message = "La date doit etre renseigner ")
+	@Column(name = "date_garde")
 	private Date			date_garde;
 	
-	@NotBlank( message = "L'heure doit etre renseigner ")
+	@Column(name = "heure_arrivee")
 	private Time			heure_arrivee;
 	
+	@Column(name = "heure_depart")
 	private Time			heure_depart;
 
+	@Column(name = "repas")
 	private String			repas;
 	
+	
+	@OneToMany
+	@JoinColumn(name = "id")
 	private Enfant enfant;
 	
+	@OneToMany
+	@JoinColumn(name = "id")
 	private Nounous nounous;
 
 	
