@@ -59,5 +59,35 @@ public interface IMapper {
 	Telephone duplicate( Telephone source );
 
 	List<Telephone> duplicate( List<Telephone> source );
+	
+	/*//Enfant
+	
+	Enfant    map( DtoEnfant source );
+	
+	DtoEnfant map( Enfant source );
+	
+	Enfant	duplicate( Enfant source );
+	
+	//Garde
+	
+	Garde    map( DtoGarde source );
+	
+	DtoGarde	map( Garde source );
+	
+    Garde duplicate( Garde source );
+	
+	//Nounous
+	Nounous    map( DtoNounous source );
+	
+	DtoNounous map( Nounous source );
+	
+    Nounous duplicate( Nounous source );
+	
+	//Parent
+	Parent    map( DtoParent source );
+	
+	DtoParent map( Parent source );
+	
+    Parent duplicate( Parent source );*/
 
 }

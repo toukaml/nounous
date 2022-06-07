@@ -25,8 +25,12 @@
    <to-view-id>/pages/info.xhtml</to-view-id>
   </navigation-case>
   <navigation-case>
-   <from-outcome>liste_garde_jour</from-outcome>
-   <to-view-id>/pages/user/garde/liste.xhtml</to-view-id>
+   <from-outcome>nouvelle_garde</from-outcome>
+   <to-view-id>/pages/user/garde/formulaire.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>nouveau_contrat</from-outcome>
+   <to-view-id>/pages/user/contrat/formulaire.xhtml</to-view-id>
   </navigation-case>
   <navigation-case>
    <from-outcome>nouvelle_garde</from-outcome>
