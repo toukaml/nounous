@@ -46,6 +46,10 @@
 			<from-outcome>liste_totale_gardes</from-outcome>
 			<to-view-id>/pages/user/garde/liste_totale.xhtml</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>liste_parents</from-outcome>
+			<to-view-id>/pages/user/parent/liste.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
 	<application />
 </faces-config>
