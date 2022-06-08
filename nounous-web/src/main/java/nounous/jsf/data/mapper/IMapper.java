@@ -7,10 +7,16 @@ import org.mapstruct.MappingTarget;
 
 import nounous.commun.dto.DtoCategorie;
 import nounous.commun.dto.DtoCompte;
+import nounous.commun.dto.DtoEnfant;
+import nounous.commun.dto.DtoGarde;
+import nounous.commun.dto.DtoNounous;
 import nounous.commun.dto.DtoPersonne;
 import nounous.commun.dto.DtoTelephone;
 import nounous.jsf.data.Categorie;
 import nounous.jsf.data.Compte;
+import nounous.jsf.data.Enfant;
+import nounous.jsf.data.Garde;
+import nounous.jsf.data.Nounous;
 import nounous.jsf.data.Personne;
 import nounous.jsf.data.Telephone;
 
@@ -60,7 +66,7 @@ public interface IMapper {
 
 	List<Telephone> duplicate( List<Telephone> source );
 	
-	/*//Enfant
+	//Enfant
 	
 	Enfant    map( DtoEnfant source );
 	
@@ -70,11 +76,11 @@ public interface IMapper {
 	
 	//Garde
 	
-	Garde    map( DtoGarde source );
-	
-	DtoGarde	map( Garde source );
-	
-    Garde duplicate( Garde source );
+//	Garde    map( DtoGarde source );
+//	
+//	DtoGarde	map( Garde source );
+//	
+//    Garde duplicate( Garde source );
 	
 	//Nounous
 	Nounous    map( DtoNounous source );
@@ -84,7 +90,7 @@ public interface IMapper {
     Nounous duplicate( Nounous source );
 	
 	//Parent
-	Parent    map( DtoParent source );
+	/*Parent    map( DtoParent source );
 	
 	DtoParent map( Parent source );
 	
