@@ -76,11 +76,11 @@ public interface IMapper {
 	
 	//Garde
 	
-//	Garde    map( DtoGarde source );
-//	
-//	DtoGarde	map( Garde source );
-//	
-//    Garde duplicate( Garde source );
+	Garde    map( DtoGarde source );
+	
+	DtoGarde	map( Garde source );
+	
+    Garde duplicate( Garde source );
 	
 	//Nounous
 	Nounous    map( DtoNounous source );
