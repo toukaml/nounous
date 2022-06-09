@@ -43,6 +43,9 @@
     ID="liste_parents::#pages#user#parent#liste.xhtml" NAME="output9"
     PATH="/pages/user/parent/liste.xhtml"
     TARGET="rules:#pages#user#parent#liste.xhtml" TITLE="liste_parents" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="consulter::#pages#user#contrat#liste.xhtml"
+    NAME="output10" PATH="/pages/user/contrat/liste.xhtml"
+    TARGET="rules:#pages#user#contrat#liste.xhtml" TITLE="consulter" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#connexion.xhtml" PATH="/connexion.xhtml"
@@ -65,4 +68,7 @@
   PATH="/pages/user/garde/liste_totale.xhtml" SHAPE="304,737,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#pages#user#parent#liste.xhtml"
   PATH="/pages/user/parent/liste.xhtml" SHAPE="304,769,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#user#contrat#liste.xhtml"
+  PATH="/pages/user/contrat/liste.xhtml" SHAPE="715,278,0,0"
+  model-entity="JSFProcessGroup" persistent="true"/>
 </PROCESS>

@@ -12,7 +12,7 @@
 	<h:form>
 
 		<h:dataTable styleClass="liste" 
-			value="#{modelPersonne.liste}" var="item" 
+			value="#{modelContrat.liste}" var="item" 
 			rowClasses="impair, pair" columnClasses="center,left,center"
 		>
 			<h:column>
@@ -24,11 +24,24 @@
 			
 			<h:column>
 				<f:facet name="header">
-					<h:outputText value="Nom" />
+					<h:outputText value="Nom enfant" />
 				</f:facet>
-				#{item.nom} #{item.prenom}
+				#{item.enfant.nom} #{item.enfant.prenom}
 			</h:column>
 			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="date" />
+				</f:facet>
+				#{item.nounous.nom} #{item.nounous.prenom}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="date" />
+				</f:facet>
+				#{item.date_debut}
+			</h:column>
 			<h:column>
 				<f:facet name="header">
 					<h:outputText value="Actions" />
@@ -39,7 +52,7 @@
 					title="Modifier" 
 					styleClass="image-action"
 				/>
-				<h:commandButton action="#{modelPersonne.supprimer(item)}" 
+				<h:commandButton action="#{modelContrat.supprimer(item)}" 
 					value="Supprimer" 
 					onclick="return confirm('Confirmez-vous la suppression ?')" 
 					image="#{ resource['images:supprimer.png'] }" 

@@ -7,7 +7,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 	<f:metadata>
-
+		<f:viewParam name="id" value="#{modelGarde.courant.id}" />
+		<f:viewAction action="#{modelGarde.actualiserCourant()}" />
 	</f:metadata>
 
 	<ui:define name="titre">Nouvelle Garde</ui:define>
@@ -18,13 +19,13 @@
 			<table class="form">
 				<tr>
 					<td><h:outputLabel for="nom">Nom enfant:</h:outputLabel></td>
-					<td><h:inputText id="nom" size="20"  value="" />
+					<td><h:inputText id="nom_enfant" size="20"  value="#{modelGarde.courant.enfant.nom}" />
 						<br /> <h:message for="nom" errorClass="error" /></td>
 				</tr>
 				<tr>
 					<td><h:outputLabel for="nom">Nom parent:</h:outputLabel></td>
 					<td><h:inputText id="nom_parent" size="20"
-							value="" /> <br /> <h:message for="nom" errorClass="error" /></td>
+							value="#{modelGarde.courant.enfant.prenom}" /> <br /> <h:message for="nom" errorClass="error" /></td>
 				</tr>
 				<tr>
 					<td><h:outputLabel for="date">Date :</h:outputLabel></td>
@@ -35,19 +36,19 @@
 					<td><h:outputLabel for="heure_arrivee">Heure arrivee :</h:outputLabel>
 					</td>
 					<td><h:inputText id="heure_arrivee" size="20"
-							value="" /> <br /> <h:message for="heure_arrivee"
+							value="#{modelGarde.courant.heure_arrivee}" /> <br /> <h:message for="heure_arrivee"
 							errorClass="error" /></td>
 				</tr>
 				<tr>
 					<td><h:outputLabel for="heure_depart">Heure depart :</h:outputLabel>
 					</td>
 					<td><h:inputText id="heure_depart" size="20"
-							value="" /> <br /> <h:message for="heure_depart"
+							value="#{modelGarde.courant.heure_depart}" /> <br /> <h:message for="heure_depart"
 							errorClass="error" /></td>
 				</tr>
 				<tr>
 					<td><h:outputLabel for="repas">Repas :</h:outputLabel></td>
-					<td><h:selectOneRadio value="">
+					<td><h:selectOneRadio value="#{modelGarde.courant.repas}">
 							<f:selectItem itemValue="yes" itemLabel="Oui" />
 							<f:selectItem itemValue="no" itemLabel="Non" />
 						</h:selectOneRadio></td>
@@ -56,8 +57,11 @@
 			</table>
 
 			<br />
+			
+			<h:commandButton value="Enregistrer" 
+			action="#{modelGarde.validerMiseAJour()}">
+			</h:commandButton>
 	
-			<h:commandButton value="Enregistrer" />
 
 		</h:form>
 

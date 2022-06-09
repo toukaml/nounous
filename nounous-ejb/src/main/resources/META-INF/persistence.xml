@@ -24,6 +24,7 @@
       <!-- If you are running in a production environment, add a managed
          data source, this configuration uses the JakartaEE default data source is just for development and testing! -->
       <jta-data-source>java:/ds/nounous</jta-data-source>
+      <class>nounous.ejb.data.Contrat</class>
       <class>nounous.ejb.data.Garde</class>
       <class>nounous.ejb.data.Nounous</class>
       <properties>

@@ -10,13 +10,14 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import nounous.commun.dto.DtoGarde;
-
+import nounous.commun.exception.ExceptionValidation;
 import nounous.commun.service.IServiceGarde;
 
 import nounous.jsf.data.Garde;
 import nounous.jsf.data.Personne;
 
 import nounous.jsf.data.mapper.IMapper;
+import nounous.jsf.util.UtilJsf;
 
 
 @SuppressWarnings("serial")
@@ -29,7 +30,7 @@ public class ModelGarde implements Serializable {
 	
 	private List<Garde>		liste;
 	
-	private Garde			courant;
+	private Garde			courant ;
 	
 	@EJB
 	private IServiceGarde  	serviceGarde;
@@ -63,9 +64,9 @@ public class ModelGarde implements Serializable {
 	
 	// Initialisaitons
 	
-	/*public String actualiserCourant() {
+	public String actualiserCourant() {
 		if ( courant != null ) {
-			DtoPersonne dto = servicePersonne.retrouver( courant.getId() ); 
+			DtoGarde dto = serviceGarde.retrouver( courant.getId() ); 
 			if ( dto == null ) {
 				UtilJsf.messageError( "La personne demandée n'existe pas" );
 				return "liste";
@@ -82,22 +83,22 @@ public class ModelGarde implements Serializable {
 	public String validerMiseAJour() {
 		try {
 			if ( courant.getId() == null) {
-				servicePersonne.inserer( mapper.map(courant) );
+				serviceGarde.inserer( mapper.map(courant) );
 			} else {
-				servicePersonne.modifier( mapper.map(courant) );
+				serviceGarde.modifier( mapper.map(courant) );
 			}
 			UtilJsf.messageInfo( "Mise à jour effectuée avec succès." );
-			return "liste";
+			return "liste_gardes";
 		} catch (ExceptionValidation e) {
 			UtilJsf.messageError(e);
 			return null;
 		}
 	}
 	
-	public String supprimer( Personne personne ) {
+	public String supprimer( Garde garde ) {
 		try {
-			servicePersonne.supprimer( personne.getId() );
-			liste.remove(personne);
+			serviceGarde.supprimer( garde.getId() );
+			liste.remove(garde);
 			UtilJsf.messageInfo( "Suppression effectuée avec succès." );
 		} catch (ExceptionValidation e) {
 			UtilJsf.messageError( e ); 
@@ -106,7 +107,8 @@ public class ModelGarde implements Serializable {
 	}
 	
 	
-	public String ajouterTelephone() {
+	
+	/*public String ajouterTelephone() {
 		courant.getTelephones().add( new Telephone() );
 		return null;
 	}

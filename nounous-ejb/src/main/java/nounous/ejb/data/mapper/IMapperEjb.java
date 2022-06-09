@@ -8,12 +8,14 @@ import org.mapstruct.factory.Mappers;
 
 import nounous.commun.dto.DtoCategorie;
 import nounous.commun.dto.DtoCompte;
+import nounous.commun.dto.DtoContrat;
 import nounous.commun.dto.DtoGarde;
 import nounous.commun.dto.DtoParent;
 import nounous.commun.dto.DtoPersonne;
 import nounous.commun.dto.DtoTelephone;
 import nounous.ejb.data.Categorie;
 import nounous.ejb.data.Compte;
+import nounous.ejb.data.Contrat;
 import nounous.ejb.data.Garde;
 import nounous.ejb.data.Parent;
 import nounous.ejb.data.Personne;
@@ -63,6 +65,16 @@ public interface IMapperEjb {
 	@Mapping(target = "enfant", ignore = true)
 	@Mapping(target = "nounous", ignore = true)
 	DtoGarde mapMinimal(Garde source);
+	
+	//Contrat
+	
+	Contrat map(DtoContrat source);
+
+	DtoContrat map(Contrat source);
+
+	@Mapping(target = "enfant", ignore = true)
+	@Mapping(target = "nounous", ignore = true)
+	DtoContrat mapMinimal(Contrat source);
 
 	// Telephone
 

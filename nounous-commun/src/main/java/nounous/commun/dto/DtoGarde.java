@@ -12,7 +12,7 @@ public class DtoGarde implements Serializable {
 	// Champs
 
 	//
-	private Integer id;
+	private int  id;
 
 	private Date date_garde;
 
