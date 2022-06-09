@@ -14,6 +14,7 @@ import nounous.commun.dto.Roles;
 import nounous.jsf.data.Categorie;
 import nounous.jsf.data.Compte;
 import nounous.jsf.data.Garde;
+import nounous.jsf.data.Parent;
 import nounous.jsf.data.Personne;
 import nounous.jsf.data.Telephone;
 import nounous.jsf.data.mapper.IMapper;
@@ -28,8 +29,10 @@ public class Donnees implements Serializable {
 	private final Map<Integer, Categorie> mapCategories = new HashMap<>();
 	private final Map<Integer, Personne> mapPersonnes = new HashMap<>();
 	private final Map<Integer, Garde> mapGardes = new HashMap<>();
-
+	private final Map<Integer, Parent> mapParents = new HashMap<>();
+	
 	private int dernierIdTelephone;
+	
 
 	@Inject
 	private IMapper mapper;
@@ -64,9 +67,18 @@ public class Donnees implements Serializable {
 		List<Garde> gardes = new ArrayList<>();
 		
 		for (Garde garde : mapGardes.values()) {
-			((List<Garde>) gardes).add(mapper.duplicate(garde));
+			 gardes.add(mapper.duplicate(garde));
 		}
 		return gardes;
+	}
+	
+	public List<Parent> getParent() {
+		List<Parent> parents = new ArrayList<>();
+		
+		for (Parent parent : mapParents.values()) {
+			 parents.add(mapper.duplicate(parent));
+		}
+		return parents;
 	}
 
 	// Constructeur
@@ -214,7 +226,7 @@ public class Donnees implements Serializable {
 		personne.getTelephones().add(new Telephone(23, "Travail", "05 55 99 22 22"));
 		mapPersonnes.put(personne.getId(), personne);
 
-		dernierIdTelephone = 100;
+	//	dernierIdTelephone = 100;
 
 	}
 

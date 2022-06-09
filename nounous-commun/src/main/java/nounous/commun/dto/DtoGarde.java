@@ -85,4 +85,20 @@ public class DtoGarde implements Serializable {
 		this.id = id;
 	}
 
+	public DtoEnfant getEnfant() {
+		return enfant;
+	}
+
+	public void setEnfant(DtoEnfant enfant) {
+		this.enfant = enfant;
+	}
+
+	public DtoNounous getNounous() {
+		return nounous;
+	}
+
+	public void setNounous(DtoNounous nounous) {
+		this.nounous = nounous;
+	}
+
 }

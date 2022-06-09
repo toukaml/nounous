@@ -1,20 +1,22 @@
 package nounous.ejb.data;
 
-import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.Objects;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 
 
-
+@Entity
+@Table( name = "garde" )
 public class Garde  {
 
 
@@ -22,6 +24,7 @@ public class Garde  {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Integer			id;
 	
 	@Column(name = "date_garde")
@@ -37,12 +40,12 @@ public class Garde  {
 	private String			repas;
 	
 	
-	@OneToMany
-	@JoinColumn(name = "id")
+	@ManyToOne
+	@JoinColumn(name = "id_enfant")
 	private Enfant enfant;
 	
-	@OneToMany
-	@JoinColumn(name = "id")
+	@ManyToOne
+	@JoinColumn(name = "id_nounous")
 	private Nounous nounous;
 
 	

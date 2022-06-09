@@ -9,30 +9,29 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import nounous.commun.dto.DtoGarde;
-
-import nounous.commun.service.IServiceGarde;
-
-import nounous.jsf.data.Garde;
-import nounous.jsf.data.Personne;
-
+import nounous.commun.dto.DtoParent;
+import nounous.commun.exception.ExceptionValidation;
+import nounous.commun.service.IServiceParent;
+import nounous.jsf.data.Parent;
+import nounous.jsf.data.Telephone;
 import nounous.jsf.data.mapper.IMapper;
+import nounous.jsf.util.UtilJsf;
 
 
 @SuppressWarnings("serial")
 @ViewScoped
 @Named
-public class ModelGarde implements Serializable {
+public class ModelParent implements Serializable {
 
 	
 	// Champs
 	
-	private List<Garde>		liste;
+	private List<Parent>		liste;
 	
-	private Garde			courant;
+	private Parent			courant;
 	
 	@EJB
-	private IServiceGarde  	serviceGarde;
+	private IServiceParent	serviceParent;
 
 	@Inject
 	private IMapper				mapper;
@@ -40,22 +39,19 @@ public class ModelGarde implements Serializable {
 	
 	// Getters 
 	
-	public List<Garde> getListe() {
-		
+	public List<Parent> getListe() {
 		if ( liste == null ) {
 			liste = new ArrayList<>();
-			System.out.println("if garde " + serviceGarde.listerTout().size());
-			for ( DtoGarde dto : serviceGarde.listerTout() ) {
+			for ( DtoParent dto : serviceParent.listerTout() ) {
 				liste.add( mapper.map( dto ) );
 			}
 		}
-		System.out.println("model garde "+ liste.size());
 		return liste;
 	}
 
-	public Garde getCourant() {
+	public Parent getCourant() {
 		if ( courant == null ) {
-			courant = new Garde();
+			courant = new Parent();
 		}
 		return courant;
 	}
@@ -63,11 +59,11 @@ public class ModelGarde implements Serializable {
 	
 	// Initialisaitons
 	
-	/*public String actualiserCourant() {
+	public String actualiserCourant() {
 		if ( courant != null ) {
-			DtoPersonne dto = servicePersonne.retrouver( courant.getId() ); 
+			DtoParent dto = serviceParent.retrouver( courant.getId() ); 
 			if ( dto == null ) {
-				UtilJsf.messageError( "La personne demandée n'existe pas" );
+				UtilJsf.messageError( "La parent demandée n'existe pas" );
 				return "liste";
 			} else {
 				courant = mapper.map( dto );
@@ -82,9 +78,9 @@ public class ModelGarde implements Serializable {
 	public String validerMiseAJour() {
 		try {
 			if ( courant.getId() == null) {
-				servicePersonne.inserer( mapper.map(courant) );
+				serviceParent.inserer( mapper.map(courant) );
 			} else {
-				servicePersonne.modifier( mapper.map(courant) );
+				serviceParent.modifier( mapper.map(courant) );
 			}
 			UtilJsf.messageInfo( "Mise à jour effectuée avec succès." );
 			return "liste";
@@ -94,10 +90,10 @@ public class ModelGarde implements Serializable {
 		}
 	}
 	
-	public String supprimer( Personne personne ) {
+	public String supprimer( Parent parent ) {
 		try {
-			servicePersonne.supprimer( personne.getId() );
-			liste.remove(personne);
+			serviceParent.supprimer( parent.getId() );
+			liste.remove(parent);
 			UtilJsf.messageInfo( "Suppression effectuée avec succès." );
 		} catch (ExceptionValidation e) {
 			UtilJsf.messageError( e ); 
@@ -106,7 +102,7 @@ public class ModelGarde implements Serializable {
 	}
 	
 	
-	public String ajouterTelephone() {
+	/*public String ajouterTelephone() {
 		courant.getTelephones().add( new Telephone() );
 		return null;
 	}

@@ -10,82 +10,82 @@ import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.inject.Inject;
 
-import nounous.commun.dto.DtoParent;
-import nounous.commun.dto.DtoTelephone;
+import nounous.commun.dto.DtoGarde;
 import nounous.commun.exception.ExceptionValidation;
-import nounous.commun.service.IServiceParent;
-import nounous.ejb.dao.IDaoParent;
-import nounous.ejb.data.Parent;
+import nounous.commun.service.IServiceGarde;
+import nounous.ejb.dao.IDaoGarde;
+import nounous.ejb.data.Garde;
 import nounous.ejb.data.mapper.IMapperEjb;
 
 @Stateless
 @Remote
-public class ServiceParent implements IServiceParent {
+public class ServiceGarde implements IServiceGarde {
 
 	// Champs
-	
 	@Inject
 	private IMapperEjb mapper;
 	@Inject
-	private IDaoParent daoParent;
+	private IDaoGarde daoGarde;
 
 	// Actions
 
 	@Override
-	public int inserer(DtoParent dtoParent) throws ExceptionValidation {
-		//verifierValiditeDonnees(dtoParent);
-		int id = daoParent.inserer(mapper.map(dtoParent));
+	public int inserer(DtoGarde dtoGarde) throws ExceptionValidation {
+		//verifierValiditeDonnees(dtoGarde);
+		int id = daoGarde.inserer(mapper.map(dtoGarde));
 		return id;
 	}
 
 	@Override
-	public void modifier(DtoParent dtoParent) throws ExceptionValidation {
-		//verifierValiditeDonnees(dtoParent);
-		daoParent.modifier(mapper.map(dtoParent));
+	public void modifier(DtoGarde dtoGarde) throws ExceptionValidation {
+		//verifierValiditeDonnees(dtoGarde);
+		daoGarde.modifier(mapper.map(dtoGarde));
 	}
 
 	@Override
-	public void supprimer(int idParent) throws ExceptionValidation {
-		daoParent.supprimer(idParent);
-	}
-
-	@Override
-	@TransactionAttribute(NOT_SUPPORTED)
-	public DtoParent retrouver(int idParent) {
-		Parent parent = daoParent.retrouver(idParent);
-		return mapper.map(parent);
-
+	public void supprimer(int idGarde) throws ExceptionValidation {
+		daoGarde.supprimer(idGarde);
 	}
 
 	@Override
 	@TransactionAttribute(NOT_SUPPORTED)
-	public List<DtoParent> listerTout() {
-		List<DtoParent> liste = new ArrayList<>();
-		for (Parent parent : daoParent.listerTout()) {
-			liste.add( mapper.mapMinimal(parent) );
+	public DtoGarde retrouver(int idGarde) {
+		Garde garde = daoGarde.retrouver(idGarde);
+		return mapper.map(garde);
+
+	}
+
+	@Override
+	@TransactionAttribute(NOT_SUPPORTED)
+	public List<DtoGarde> listerTout() {
+		List<DtoGarde> liste = new ArrayList<>();
+		for (Garde garde : daoGarde.listerTout()) {
+			liste.add( mapper.mapMinimal(garde) );
 		}
+		
+		System.out.println("service garde "+ liste.size());
 		return liste;
 	}
 
 	// Méthodes auxiliaires
-
-/*	private void verifierValiditeDonnees(DtoParent dtoParent) throws ExceptionValidation {
+/*
+	private void verifierValiditeDonnees(DtoGarde dtoGarde) throws ExceptionValidation {
 
 		StringBuilder message = new StringBuilder();
 
-		if (dtoParent.getNom() == null || dtoParent.getNom().isEmpty()) {
+		if (dtoGarde.getNom() == null || dtoGarde.getNom().isEmpty()) {
 			message.append("\nLe nom est absent.");
-		} else if (dtoParent.getNom().length() > 25) {
+		} else if (dtoGarde.getNom().length() > 25) {
 			message.append("\nLe nom est trop long.");
 		}
 
-		if (dtoParent.getPrenom() == null || dtoParent.getPrenom().isEmpty()) {
+		if (dtoGarde.getPrenom() == null || dtoGarde.getPrenom().isEmpty()) {
 			message.append("\nLe prénom est absent.");
-		} else if (dtoParent.getPrenom().length() > 25) {
+		} else if (dtoGarde.getPrenom().length() > 25) {
 			message.append("\nLe prénom est trop long.");
 		}
 
-		for (DtoTelephone telephoe : dtoParent.getTelephones()) {
+		for (DtoTelephone telephoe : dtoGarde.getTelephones()) {
 			if (telephoe.getLibelle() == null || telephoe.getLibelle().isEmpty()) {
 				message.append("\nLlibellé absent pour le téléphone : " + telephoe.getNumero());
 			} else if (telephoe.getLibelle().length() > 25) {

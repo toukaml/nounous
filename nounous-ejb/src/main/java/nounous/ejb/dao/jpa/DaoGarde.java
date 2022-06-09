@@ -57,7 +57,7 @@ public class DaoGarde implements IDaoGarde {
 	@TransactionAttribute( NOT_SUPPORTED )
 	public List<Garde> listerTout() {
 		em.clear();
-		var jpql = "SELECT g FROM Garde g ORDER BY g.date_garde, g.heure_arrivee";
+		var jpql = "SELECT g FROM Garde g ORDER BY g.date_garde";
 		var query = em.createQuery( jpql, Garde.class );
 		return query.getResultList();
 	}

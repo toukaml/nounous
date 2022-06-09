@@ -10,6 +10,7 @@ import nounous.commun.dto.DtoCompte;
 import nounous.commun.dto.DtoEnfant;
 import nounous.commun.dto.DtoGarde;
 import nounous.commun.dto.DtoNounous;
+import nounous.commun.dto.DtoParent;
 import nounous.commun.dto.DtoPersonne;
 import nounous.commun.dto.DtoTelephone;
 import nounous.jsf.data.Categorie;
@@ -17,6 +18,7 @@ import nounous.jsf.data.Compte;
 import nounous.jsf.data.Enfant;
 import nounous.jsf.data.Garde;
 import nounous.jsf.data.Nounous;
+import nounous.jsf.data.Parent;
 import nounous.jsf.data.Personne;
 import nounous.jsf.data.Telephone;
 
@@ -90,10 +92,10 @@ public interface IMapper {
     Nounous duplicate( Nounous source );
 	
 	//Parent
-	/*Parent    map( DtoParent source );
+	Parent    map( DtoParent source );
 	
 	DtoParent map( Parent source );
 	
-    Parent duplicate( Parent source );*/
+    Parent duplicate( Parent source );
 
 }

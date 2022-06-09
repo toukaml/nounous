@@ -63,7 +63,7 @@ public class DaoParent implements IDaoParent{
 	@TransactionAttribute( NOT_SUPPORTED )
 	public List<Parent> listerTout() {
 		em.clear();
-		var jpql = "SELECT p FROM Parent p ORDER BY p.nom, p.prenom";
+		var jpql = "SELECT p FROM Parent p ORDER BY p.nom";
 		var query = em.createQuery( jpql, Parent.class );
 		return query.getResultList();
 	}
@@ -73,6 +73,12 @@ public class DaoParent implements IDaoParent{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	/*@Override
+	public int compterPourCategorie(int idCategorie) {
+		// TODO Auto-generated method stub
+		return 0;
+	}*/
 
 
 
